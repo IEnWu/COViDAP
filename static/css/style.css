@@ -20,7 +20,7 @@ header {
 }
 
 #logo {
-    max-width: 20%;
+    max-width: 30%;
     height: auto;
     display: block;
     margin: 0 auto;
@@ -36,7 +36,7 @@ header {
 }
 
 #icon {
-    max-width: 100%; /* or 10%, 200px etc. depending on desired size */
+    width: 100%; /* or 10%, 200px etc. depending on desired size */
     height: auto;
 }
 
@@ -48,7 +48,7 @@ header {
 }
 
 #icon2 img {
-    max-width: 70%; 
+    max-width: 80%; 
     height: auto; 
 }
 
