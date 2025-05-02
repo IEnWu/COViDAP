@@ -1,6 +1,6 @@
 rdkit == 2022.9.5 
 scikit-learn
-numpy
+numpy == 1.13
 pandas 
 flask 
 gunicorn==20.1.0
