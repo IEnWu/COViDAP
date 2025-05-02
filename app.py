@@ -137,8 +137,8 @@ def upload_file():
             result = {
                 "SMILE": smile,
                 "Structure": f"data:image/png;base64,{img_base64}",
-                "Predicted Activity Against SARS-CoV-2": predictions[0],
-                "Drug Likeness": predictions[0],
+                "Predicted Activity Against SARS-CoV-2": int(predictions[0][0]),
+                "Drug Likeness": int(predictions[0][0])
             }
         except Exception as e:
             print(f"An error occurred: {e}")
@@ -148,5 +148,5 @@ def upload_file():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
 

@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MYPROJECT</title>
-<link rel="stylesheet" href="../static/css/style.css">   <!-- link to css -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">   <!-- link to css -->
 <body>
     <header>
-        <img src="../static/imgs/COVIDAP.png" id="logo">
+        <img src="{{ url_for('static', filename='imgs/COVIDAP.png') }}" id="logo">
     </header>
 
     <div id="icon-container">
-        <img src="../static/imgs/icon.png" id="icon">
+        <img src="{{ url_for('static', filename='imgs/icon.png') }}" id="icon">
     </header>
     </div>
 
@@ -51,19 +51,24 @@
 
             {% if result %} 
             <div id="result">
-            
                 <h2>> Result</h2>
                 {% if result.error %}
                     <p>{{ result.error }}</p>
                 {% else %}
-                    <p>SMILE: {{ result['SMILE'] }}</p>
-                    <p><img src="{{ result['Structure'] }}"></p>
-                    <p>Normal Boiling Point: {% if result['Normal boiling point'] %}{{ '%.2f' | format(result['Normal boiling point']) }} K{% else %}N/A{% endif %}</p>
-                    <p>Enthalpy of Formation (Gaseous state): {% if result['Enthalpy of Formation (Gaseous state)'] %}{{ '%.2f' | format(result['Enthalpy of Formation (Gaseous state)']) }} kJ/mole{% else %}N/A{% endif %}</p>
-                    <p>Acentric Factor: {% if result['Acentric factor'] %}{{ '%.4f' | format(result['Acentric factor']) }}{% else %}N/A{% endif %}</p>
-                    <p>Critical Compressibility Factor: {% if result['Critical compressibility factor'] %}{{ '%.4f' | format(result['Critical compressibility factor']) }}{% else %}N/A{% endif %}</p>                                 
+                    <p><strong>SMILE:</strong> {{ result['SMILE'] }}</p>
+                    <p><strong>Structure:</strong><br><img src="{{ result['Structure'] }}"></p>
+            
+                    {% if result['Predicted Activity Against SARS-CoV-2'] == 1 %}
+                        <p><strong>Predicted Activity Against SARS-CoV-2:</strong> Active</p>
+                        <p><strong>Drug Likeness:</strong> Pass</p>
+                    {% elif result['Predicted Activity Against SARS-CoV-2'] == 0 %}
+                        <p><strong>Predicted Activity Against SARS-CoV-2:</strong> Inactive</p>
+                        <p><strong>Drug Likeness:</strong> Fail</p>
+                    {% else %}
+                        <p><strong>Predicted Activity Against SARS-CoV-2:</strong> Unknown</p>
+                        <p><strong>Drug Likeness:</strong> Unknown</p>
+                    {% endif %}
                 {% endif %}
-            {% endif %}
             </div>
         </section>
     </main>
