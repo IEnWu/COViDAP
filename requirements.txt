@@ -1,12 +1,12 @@
-rdkit == 2022.9.5 
-scikit-learn
-numpy == 1.23.0
-pandas 
+rdkit == 2024.9.6 
+scikit-learn == 1.6.1
+numpy == 2.0.2
+pandas == 2.2.2
 flask 
 gunicorn==20.1.0
-Jinja2==3.1.2
+Jinja2==3.1.6
 flask_material
 urllib3 == 2.0.3
 werkzeug == 3.0.2
 joblib == 1.4.2
-lightgbm
+lightgbm == 4.5.0
