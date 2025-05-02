@@ -76,7 +76,6 @@ def upload_file():
             buffered = BytesIO()
             img.save(buffered, format="PNG")
             img_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
-
         try:
             expected_features = ['MaxAbsEStateIndex', 'MaxEStateIndex', 'MinAbsEStateIndex', 'MinEStateIndex',
  'qed', 'SPS', 'MolWt', 'HeavyAtomMolWt', 'ExactMolWt', 'NumValenceElectrons',
