@@ -10,7 +10,7 @@ body, html {
     padding: 0;
 }
 header {
-    background-color: #43535a; /* Dark background for the header */
+    background-color: #F7E4D8; /* Dark background for the header */
     display: flex;
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
@@ -20,8 +20,10 @@ header {
 }
 
 #logo {
-    max-width: 60%;
-    height: auto; /* Maintains the aspect ratio of the image */
+    max-width: 40%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 #icon-container {
