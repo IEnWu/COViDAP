@@ -30,8 +30,8 @@
                 <div id="icon2">
                     <img src="{{ url_for('static', filename='imgs/COVIDAP2.png') }}">
                 </div>
-                <p>How to Use COViDAP:</p>
-                <ol style="font-size: 30px;">                   
+                <p style="font-size: 28px;">How to Use COViDAP:</p>
+                <ol style="font-size: 24px;">                   
                     <li>Enter the SMILES notation of the molecular candidate.</li>
                     <li>Click the “Submit” button to generate the candidate’s report.</li>
                     <li>Receive the molecule’s predicted activity against SARS-CoV-2 and its conformity to known drug-likeness criteria.</li>
@@ -41,7 +41,7 @@
                         
             <div id="smile-submission">
                 <h2>> Provide Your SMILE</h2>
-                
+        
                     <form method="post" action='/upload' enctype="multipart/form-data">
                     <h6>Example: O=[N+]([O-])C(Br)([N+](=O)[O-])[N+](=O)[O-]</h6>
 
