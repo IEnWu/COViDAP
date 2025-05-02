@@ -35,11 +35,21 @@ header {
     border-bottom: 4px solid black;
 }
 
-
-
 #icon {
-    width: 100%;
-    height: auto; /* Maintains the aspect ratio of the image */
+    max-width: 150px; /* or 10%, 200px etc. depending on desired size */
+    height: auto;
+}
+
+#icon2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+#icon2 img {
+    max-width: 200px; 
+    height: auto; 
 }
 
 #MLname .text-container {
