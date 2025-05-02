@@ -36,7 +36,7 @@ header {
 }
 
 #icon {
-    width: 100%; /* or 10%, 200px etc. depending on desired size */
+    width: 90%; /* or 10%, 200px etc. depending on desired size */
     height: auto;
 }
 
