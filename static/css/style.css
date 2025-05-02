@@ -27,6 +27,7 @@ header {
 }
 
 #icon-container {
+    background-color: #F7FFFF;
     display: flex;
     justify-content: center; /* Centers horizontally */
     align-items: center; /* Centers vertically */
