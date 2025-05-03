@@ -42,6 +42,13 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 ALLOWED_EXTENSIONS = {'txt','csv'}
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
+def get_mol_image_with_custom_bg(mol, bg_rgb=(173, 216, 230)):  # #add8e6
+    d2d = Draw.MolDraw2DCairo(300, 300)
+    d2d.drawOptions().setBackgroundColour(bg_rgb)
+    d2d.DrawMolecule(mol)
+    d2d.FinishDrawing()
+    return d2d.GetDrawingText()
+
 def compute_descriptors(smiles):
     mol = Chem.MolFromSmiles(smiles)
     if mol is None:
@@ -72,10 +79,12 @@ def upload_file():
         smile = request.form['smile_name']
         mole = Chem.MolFromSmiles(smile)
         if mole is not None:
-            img = Draw.MolToImage(mole)
-            buffered = BytesIO()
-            img.save(buffered, format="PNG")
-            img_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+            # img = Draw.MolToImage(mole)
+            # buffered = BytesIO()
+            # img.save(buffered, format="PNG")
+            # img_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+            img_bytes = get_mol_image_with_custom_bg(mole)
+            img_base64 = base64.b64encode(img_bytes).decode("utf-8")
         try:
             expected_features = [
             "MaxAbsEStateIndex", "MinAbsEStateIndex", "MinEStateIndex", "SPS", "MolWt",
