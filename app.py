@@ -7,8 +7,7 @@
 #               style.css
 #           /image
 #               logo.png
-#       /uploads
-#           csv generate output: DeepSP_descriptors.csv
+
 from rdkit.Chem import Draw
 from rdkit.Chem import Descriptors
 from rdkit import Chem
@@ -26,9 +25,6 @@ import pandas as pd
 from sklearn.pipeline import Pipeline
 import joblib
 from lightgbm import LGBMClassifier
-
-# from sklearn.model_selection import train_test_split
-# from sklearn.model_selection import cross_val_score
 
 
 model_lgbm = joblib.load('lgbm_descriptor.joblib')
