@@ -43,11 +43,14 @@ ALLOWED_EXTENSIONS = {'txt','csv'}
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 def get_mol_image_with_custom_bg(mol, bg_rgb=(173, 216, 230)):  # #add8e6
+    bg_rgb_normalized = tuple([c / 255.0 for c in bg_rgb])
+
     d2d = Draw.MolDraw2DCairo(300, 300)
-    d2d.drawOptions().setBackgroundColour(bg_rgb)
+    d2d.drawOptions().setBackgroundColour(bg_rgb_normalized)
     d2d.DrawMolecule(mol)
     d2d.FinishDrawing()
     return d2d.GetDrawingText()
+
 
 def compute_descriptors(smiles):
     mol = Chem.MolFromSmiles(smiles)
